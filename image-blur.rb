@@ -1,23 +1,23 @@
 class Image
-  attr_accessor :row
+  attr_accessor :image
 
-  def initializa
-    @row = []
+  def initialize(image)
+    self.image = image
   end
 
   def output_image
-    @row = [
-    [0,0,0,0].join,
-    [0,1,0,0].join,
-    [0,0,0,1].join,
-    [0,0,0,0].join
-    ]
-    @row.each {|cell| puts cell}
-
-    end    
-  end
+    image.each do |row|
+      puts row.join
+    end
+  end    
+end
     
-image = Image.new
+image = Image.new([
+  [0, 0, 0, 0],
+  [0, 1, 0, 0],
+  [0, 0, 0, 1],
+  [0, 0, 0, 0]
+])
 image.output_image
   
 
