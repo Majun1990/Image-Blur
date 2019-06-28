@@ -37,12 +37,15 @@ class Image
   def blur(distance=1)
     distance.times do
       blurred
+    end
   end
+    
 end
 
 image = Image.new([
   [0, 0, 0, 0, 0],
   [0, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0],
   [0, 0, 0, 1, 0],
   [0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0]
