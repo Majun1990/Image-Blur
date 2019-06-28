@@ -5,20 +5,47 @@ class Image
     self.image = image
   end
 
+  def blur
+    location = []
+    image.each_with_index do |row,i|
+      row.each_with_index do |x, row_i|
+      if x == 1
+        location << [i, row_i]
+      #puts "#{i} and #{row_i}"
+      #puts "#{location}"
+      end
+      end  
+    end
+
+    #blurred_image = []
+    location.each do |i, row_i|
+      image[i-1][row_i] = 1 
+      image[i+1][row_i] = 1
+      image[i][row_i-1] = 1
+      image[i][row_i+1] = 1
+      #blurred_image<<
+    #puts image.join
+    end  
+
+  end
+
   def output_image
     image.each do |row|
       puts row.join
     end
-  end    
+  end
 end
-    
+
 image = Image.new([
   [0, 0, 0, 0],
   [0, 1, 0, 0],
   [0, 0, 0, 1],
   [0, 0, 0, 0]
 ])
+image.blur
 image.output_image
+
+
   
 
 
