@@ -5,7 +5,7 @@ class Image
     self.image = image
   end
 
-  def blur
+  def blurred
     location = []
     image.each_with_index do |row,i|
       row.each_with_index do |x, row_i|
@@ -26,7 +26,6 @@ class Image
       #blurred_image<<
     #puts image.join
     end  
-
   end
 
   def output_image
@@ -34,15 +33,21 @@ class Image
       puts row.join
     end
   end
+
+  def blur(distance=1)
+    distance.times do
+      blurred
+  end
 end
 
 image = Image.new([
-  [0, 0, 0, 0],
-  [0, 1, 0, 0],
-  [0, 0, 0, 1],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0],
+  [0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ])
-image.blur
+image.blur(2)
 image.output_image
 
 
